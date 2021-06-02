@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emi Calculator</title>
+    <!-- css source section -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+    
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Emi Calculator</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+              </li>
+            </ul>
+            <span class="navbar-text">
+              Navbar text with an inline element
+            </span>
+          </div>
+        </div>
+      </nav>
+      <div class="container">
+        <div class="col-sm-12 mt-20">
+            <h3 class="text-center text-primary">Emi Calculator</h3>
+        </div>
+        <div class="col-sm-12">
+            <!-- field section -->
+            <div class="row">
+              <div class="col-sm-6">
+                  <div class="form-group">
+                      <label for="loan_amount">Loan Amount:</label>
+                      <input type="number" class="form-control" id="loan_amount" placeholder="Write Loan Amount Here (Only Number)" >
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                    <label for="loan_type">Loan Term: </label>
+                   <select name="loan_type" id="loan_type" class="form-control" onchange="selectLoanType(this.value)">
+                       <option value="">- Select Loan Type -</option>
+                       <option value="monthly">Monthly</option>
+                       <option value="yearly">Yearly</option>
+                   </select>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="loan_term">Repayment Term: </label>
+                        <input type="number" name="loan_term" id="loan_term" class="form-control" placeholder="Write Payment Duration here (Only Number)" >
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="interest_rate">Interest rate (%): </label>
+                        <input type="number" name="interest_rate" id="interest_rate" class="form-control" placeholder="Write Interest Rate Here (Only Number)" >
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="btn-group btn-block">
+                        <button type="button" id="calBtn" class="btn btn-primary" onclick="calculateEmi()">Calculate</button>
+                        <button type="button" id="resetBtn" class="btn btn-danger" onclick="resetForm()">Reset</button>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="row mt-10">
+                <div class="col-sm-4">
+                    <div class="card" style="width: 100%;">
+                        <div class="card-body">
+                          <h5 class="card-title" id="loanTypeChange">Monthly Payment (EMI)</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">BDT: 
+                            <span class="card-text text-right" id="emiAmt">0.00</span>
+                        </h6>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card" style="width: 100%;">
+                        <div class="card-body">
+                          <h5 class="card-title">Total Interest Payable (EMI)</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">BDT: <span class="card-text text-right" id="totalInterest">0.00</span></h6>
+                          
+                        </div>
+                      </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card" style="width: 100%;">
+                        <div class="card-body">
+                          <h5 class="card-title">Total Payment (Principal + Interest)</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">BDT: <span class="card-text text-right" id="totalPayment">0.00</span></h6>
+                          
+                        </div>
+                      </div>
+                </div>
+            </div>
+           
+           
+        </div>
+      </div>
+      
+    <!-- javascript source section -->
+    <script src="js/jquery-3.6.0.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
+</body>
+</html>
